@@ -1,6 +1,7 @@
 package src
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
@@ -16,6 +17,7 @@ type Server struct {
 	Logger  *utils.Logger
 	UTCTime *time.Time
 	Config  *config.Config
+	DB      *sql.DB
 }
 
 // Server start
