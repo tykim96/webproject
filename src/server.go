@@ -33,10 +33,11 @@ func (s *Server) ListenAndServe(SPort uint16) error {
 }
 
 // Server init
-func NewServer() Server {
-	return Server{
+func NewServer() *Server {
+	return &Server{
 		Mux:     &http.ServeMux{},
 		Logger:  utils.NewLogger(),
 		UTCTime: &time.Time{},
+		DB:      utils.InitDB(),
 	}
 }
