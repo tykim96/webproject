@@ -6,14 +6,16 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/tykim96/webproject/src/config"
 	"github.com/tykim96/webproject/src/utils"
 )
 
 type Server struct {
 	Mux *http.ServeMux
 
-	logger  *utils.Logger
+	Logger  *utils.Logger
 	UTCTime *time.Time
+	Config  *config.Config
 }
 
 // Server start
@@ -32,7 +34,7 @@ func (s *Server) ListenAndServe(SPort uint16) error {
 func NewServer() Server {
 	return Server{
 		Mux:     &http.ServeMux{},
-		logger:  utils.NewLogger(),
+		Logger:  utils.NewLogger(),
 		UTCTime: &time.Time{},
 	}
 }

@@ -15,13 +15,13 @@ type Config struct {
 	DBName     string
 }
 
-func LoadConfig() Config {
+func LoadConfig() *Config {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatalf("Error loading .env file: %v", err)
 	}
 
-	return Config{
+	return &Config{
 		DBHost:     os.Getenv("DB_HOST"),
 		DBPort:     os.Getenv("DB_PORT"),
 		DBUser:     os.Getenv("DB_USER"),
